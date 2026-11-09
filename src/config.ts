@@ -11,7 +11,7 @@ export const config = {
   appStoreUrl: '',
 
   // Leave empty to hide email-based support routes.
-  supportEmail: '',
+  supportEmail: 'support@swellgamestudios.com',
 
   // Add { label, url } entries; empty list hides the social section.
   socials: [] as { label: string; url: string }[],

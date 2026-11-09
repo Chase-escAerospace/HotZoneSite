@@ -1,17 +1,80 @@
 ---
 import Base from '../layouts/Base.astro';
+import { config } from '../config';
+const email = config.supportEmail || 'support@swellgamestudios.com';
 ---
-<Base title="Privacy">
-  <h1>Privacy</h1>
-  <p class="notice" role="note"><strong>DRAFT — NOT FOR PUBLICATION.</strong> This page is a placeholder pending review. It makes no statements about what data is or is not collected. Complete and review with qualified advice before release.</p>
+<Base title="Privacy Policy" description={`Privacy policy for ${config.gameName}.`}>
+  <h1>Privacy Policy</h1>
+  <p><em>Effective November 9, 2026.</em></p>
+  <p>This policy explains what {config.studioName} ("we", "us") collects when you play {config.gameName} (the "Game") on iPhone or use this website, why we collect it, and the choices you have. Questions: <a href={`mailto:${email}`}>{email}</a>.</p>
+
   <section>
-    <h2>Items to complete</h2>
+    <h2>What we collect</h2>
     <ul>
-      <li>Who is the data controller / studio contact.</li>
-      <li>What data the game and this website collect (if any), and why.</li>
-      <li>Third-party services used (analytics, ads, purchases, form handling, hosting).</li>
-      <li>Retention, user rights and how to make requests.</li>
-      <li>Children's privacy and App Store privacy label consistency.</li>
+      <li><strong>Account identifiers.</strong> The Game signs you in automatically with an anonymous player ID, or with Apple Game Center if you are signed in to it. We receive a player ID, not your Apple ID email or password.</li>
+      <li><strong>Player name.</strong> The name you choose is shown publicly on in-game leaderboards.</li>
+      <li><strong>Game progress.</strong> Level, currencies, items, base layout, quests, battle pass progress, scores and similar game state, stored on our game servers so it survives reinstalls and devices.</li>
+      <li><strong>Purchases.</strong> When you buy something, Apple processes the payment. We receive the signed transaction (product, transaction ID, date) to grant the item and handle refunds. We never see your payment card details.</li>
+      <li><strong>Feedback.</strong> If you use Send Feedback in the Game, we store your message with its category, the app version and device details (model, operating system, memory and screen size) to help fix bugs. Messages sent through this website's forms include whatever you type, such as an optional email address.</li>
+      <li><strong>Gameplay analytics (optional).</strong> Events such as screens viewed, runs played and purchases made, linked to a random analytics ID. You can turn this off at any time in Settings &rarr; Privacy. In the EU, EEA, UK and Switzerland it is off unless you agree.</li>
+      <li><strong>Advertising data.</strong> The Game shows ads through Unity LevelPlay and its ad network partners. They may collect device information, IP address, ad interactions and, only if you allow tracking when iOS asks, your device advertising identifier (IDFA). See "Advertising" below.</li>
+      <li><strong>Technical data.</strong> Our service providers receive standard connection data such as IP address and request times when the Game or website talks to their servers.</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>How we use it</h2>
+    <ul>
+      <li>To run the Game: save progress, deliver purchases, run leaderboards and events, and prevent cheating, fraud and refund abuse.</li>
+      <li>To answer support requests and fix bugs.</li>
+      <li>To understand how the Game is played and improve it (analytics, if enabled).</li>
+      <li>To show ads, and personalised ads only where you have allowed them.</li>
+    </ul>
+    <p>We do not sell your personal information for money. Some ad partners' use of data may count as "selling" or "sharing" under California law; you can opt out as described below.</p>
+  </section>
+
+  <section>
+    <h2>Service providers</h2>
+    <ul>
+      <li><strong>Unity Gaming Services</strong> (Unity Technologies): sign-in, cloud saves, server logic, leaderboards and analytics.</li>
+      <li><strong>Unity LevelPlay</strong> and its mediated ad networks: advertising.</li>
+      <li><strong>Apple</strong>: App Store payments, refunds and Game Center.</li>
+      <li><strong>Amazon Web Services</strong> (AWS Amplify): hosting this website.</li>
+    </ul>
+    <p>These providers process data under their own privacy policies and may store it outside your country.</p>
+  </section>
+
+  <section>
+    <h2>Advertising and your choices</h2>
+    <ul>
+      <li><strong>Tracking:</strong> iOS asks before any app can use your advertising identifier. You can change this any time in iOS Settings &rarr; Privacy &amp; Security &rarr; Tracking.</li>
+      <li><strong>EU, EEA, UK, Switzerland:</strong> the Game asks for your consent before personalised ads; you can change it in Settings &rarr; Privacy.</li>
+      <li><strong>Do Not Sell or Share (US):</strong> available to everyone in Settings &rarr; Privacy.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Retention and deletion</h2>
+    <p>We keep your game data while your account exists. You can delete your account in the Game: <strong>Settings &rarr; Delete Account</strong>. This immediately and permanently erases your saved progress from our game servers and deletes your sign-in account; your leaderboard entries are removed within 30 days. Purchases cannot be restored after deletion. Purchase and refund records may be kept for a limited time where needed for fraud prevention, accounting or legal obligations. Feedback messages are kept until they are resolved and no longer needed. You can also ask us to delete or export your data by emailing <a href={`mailto:${email}`}>{email}</a> with your player name.</p>
+  </section>
+
+  <section>
+    <h2>Your rights</h2>
+    <p>Depending on where you live, you may have the right to access, correct, delete or receive a copy of your personal data, to object to or restrict processing, and to withdraw consent. Contact us at the email above. You may also complain to your local data protection authority.</p>
+  </section>
+
+  <section>
+    <h2>Children</h2>
+    <p>The Game is not directed to children under 13 (or the minimum age in your country), and we do not knowingly collect their personal information. If you believe a child has provided us data, contact us and we will delete it.</p>
+  </section>
+
+  <section>
+    <h2>Security</h2>
+    <p>Data is sent over encrypted connections and stored with our service providers. Purchases are verified with Apple's signed receipts on our servers. No system is perfectly secure, but we work to protect your data.</p>
+  </section>
+
+  <section>
+    <h2>Changes</h2>
+    <p>We will post any changes on this page and update the effective date. Significant changes will also be announced in the Game.</p>
   </section>
 </Base>
