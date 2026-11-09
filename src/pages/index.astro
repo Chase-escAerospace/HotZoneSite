@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import DownloadButton from '../components/DownloadButton.astro';
+import { config } from '../config';
+const features = [
+  { t: 'Zombie survival', d: 'Fight to stay alive against the undead.' },
+  { t: 'Base building', d: 'Build up your base to defend your ground.' },
+  { t: 'Equipment progression', d: 'Upgrade your gear as you advance.' },
+  { t: 'Battle pass rewards', d: 'Earn rewards as you progress.' },
+];
+---
+<Base title="Home">
+  <section class="hero">
+    <div>
+      <p class="kicker">{config.studioName} presents</p>
+      <h1>{config.gameName}</h1>
+      <p class="lead">{config.tagline} A mobile zombie-survival game.</p>
+      <p><DownloadButton /> <a class="btn" style="background:transparent;color:var(--cream);border:2px solid var(--cream)" href="/game/">Explore the game</a></p>
+    </div>
+    {config.heroImage
+      ? <img src={config.heroImage} alt={config.heroImageAlt} width="540" height="1200" fetchpriority="high" class="hero-img" />
+      : <div class="art" role="img" aria-label="Placeholder for key art">Key art placeholder<br />Add approved artwork in src/config.ts</div>}
+  </section>
+
+  <section aria-labelledby="features">
+    <h2 id="features">Gameplay features</h2>
+    <div class="cards">
+      {features.map((f) => <div class="card"><h3>{f.t}</h3><p>{f.d}</p></div>)}
+    </div>
+  </section>
+
+  <section aria-labelledby="gallery">
+    <h2 id="gallery">Screenshots</h2>
+    {config.screenshots.length
+      ? <div class="gallery">{config.screenshots.map((s) => <img src={s.src} alt={s.alt} loading="lazy" />)}</div>
+      : <div class="gallery">{[1, 2, 3, 4].map((n) => <div class="shot" role="img" aria-label={`Screenshot placeholder ${n}`}>Screenshot {n}<br />placeholder</div>)}</div>}
+  </section>
+
+  <section>
+    <h2>Get the game</h2>
+    <p><DownloadButton /></p>
+  </section>
+</Base>

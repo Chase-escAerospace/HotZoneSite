@@ -1,0 +1,48 @@
+---
+interface Props {
+  endpoint: string;
+  kind: 'support' | 'feedback';
+  envVar: string;
+}
+const { endpoint, kind, envVar } = Astro.props;
+const enabled = Boolean(endpoint);
+---
+{!enabled && (
+  <p class="notice" role="status">
+    This form is not connected yet, so submissions are disabled and nothing will be sent.
+    (Site owner: set <code>{envVar}</code> — see the README.)
+  </p>
+)}
+<form id={`${kind}-form`} method="post" action={enabled ? endpoint : undefined} data-endpoint={enabled ? endpoint : ''} novalidate={false}>
+  <fieldset disabled={!enabled}>
+    <slot />
+    <button class="btn" type="submit" disabled={!enabled}>Send</button>
+  </fieldset>
+  <p class="status" role="status" aria-live="polite"></p>
+</form>
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-endpoint]').forEach((form) => {
+    const endpoint = form.dataset.endpoint;
+    if (!endpoint) return;
+    const status = form.querySelector<HTMLElement>('.status')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        if (res.ok) {
+          status.textContent = 'Thanks — your message was sent.';
+          form.reset();
+        } else {
+          status.textContent = 'Sorry, sending failed. Please try again later.';
+        }
+      } catch {
+        status.textContent = 'Sorry, sending failed. Check your connection and try again.';
+      }
+    });
+  });
+</script>

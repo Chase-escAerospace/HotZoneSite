@@ -1,0 +1,8 @@
+---
+import { config } from '../config';
+interface Props { label?: string }
+const { label = 'Download on the App Store' } = Astro.props;
+---
+{config.appStoreUrl
+  ? <a class="btn" href={config.appStoreUrl} rel="noopener noreferrer">{label}</a>
+  : <span class="btn disabled" role="note">App Store: Coming soon</span>}

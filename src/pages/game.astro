@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import DownloadButton from '../components/DownloadButton.astro';
+import { config } from '../config';
+const sections = [
+  { id: 'survival', t: 'Zombie survival', d: `Face waves of zombies in ${config.gameName}. Hold your ground and stay alive.` },
+  { id: 'base', t: 'Base building', d: 'Place walls, turrets and traps to defend your base core against the horde, and upgrade them over time.' },
+  { id: 'gear', t: 'Equipment progression', d: 'Upgrade your equipment as you progress and take on tougher challenges.' },
+  { id: 'pass', t: 'Battle pass rewards', d: 'Work through the battle pass to unlock rewards.' },
+];
+---
+<Base title="Game">
+  <h1>The game</h1>
+  <p class="lead">An overview of {config.gameName}. Detailed numbers, item lists and mode descriptions will be added here once supplied by the studio.</p>
+  {sections.map((s) => (
+    <section aria-labelledby={s.id}>
+      <h2 id={s.id}>{s.t}</h2>
+      <p>{s.d}</p>
+      <div class="art" role="img" aria-label={`${s.t} artwork placeholder`}>Artwork placeholder</div>
+    </section>
+  ))}
+  <p><DownloadButton /></p>
+</Base>

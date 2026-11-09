@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { config } from '../config';
+const faqs = [
+  { q: 'Where can I download the game?', a: config.appStoreUrl ? 'Use the App Store button on the home page.' : 'The App Store listing is coming soon.' },
+  { q: 'How do I report a bug?', a: 'Use the Feedback page and describe what happened, your device and iOS version.' },
+  { q: 'How do I contact support?', a: config.supportEmail ? 'Email us using the address below or use the form.' : 'Use the support form below once it is connected.' },
+];
+---
+<Base title="Support">
+  <h1>Support</h1>
+  <section aria-labelledby="faq">
+    <h2 id="faq">FAQ</h2>
+    {faqs.map((f) => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    <p class="notice info">More FAQ entries (purchases, restoring progress, etc.) should be added after the studio confirms the answers.</p>
+  </section>
+  <section aria-labelledby="contact">
+    <h2 id="contact">Contact support</h2>
+    {config.supportEmail
+      ? <p>Email: <a href={`mailto:${config.supportEmail}`}>{config.supportEmail}</a></p>
+      : <p class="notice">Support email not configured yet.</p>}
+    <ContactForm kind="support" endpoint={config.supportFormEndpoint} envVar="PUBLIC_SUPPORT_FORM_ENDPOINT">
+      <label>Your name <input name="name" autocomplete="name" required /></label>
+      <label>Email <input name="email" type="email" autocomplete="email" required /></label>
+      <label>How can we help? <textarea name="message" rows="6" required></textarea></label>
+    </ContactForm>
+  </section>
+</Base>

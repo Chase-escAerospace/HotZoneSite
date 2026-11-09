@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { config } from '../config';
+---
+<Base title="Feedback">
+  <h1>Feedback</h1>
+  <p>Found a bug or have an idea? Tell us.</p>
+  <ContactForm kind="feedback" endpoint={config.feedbackFormEndpoint} envVar="PUBLIC_FEEDBACK_FORM_ENDPOINT">
+    <label>Type
+      <select name="type" required>
+        <option value="bug">Bug report</option>
+        <option value="suggestion">Suggestion</option>
+      </select>
+    </label>
+    <label>Email (optional, if you want a reply) <input name="email" type="email" autocomplete="email" /></label>
+    <label>Device and iOS version (for bugs) <input name="device" /></label>
+    <label>Details <textarea name="message" rows="7" required></textarea></label>
+  </ContactForm>
+</Base>

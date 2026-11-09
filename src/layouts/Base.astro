@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import { config, nav } from '../config';
+interface Props { title: string; description?: string }
+const { title, description = `${config.gameName} — ${config.tagline}` } = Astro.props;
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1e2022" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta property="og:title" content={config.gameName} />
+    <meta property="og:description" content={description} />
+    <title>{title === 'Home' ? config.gameName : `${title} | ${config.gameName}`}</title>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">HOTZONE<span>: LAST STAND</span></a>
+        <nav aria-label="Main">
+          <ul>
+            {nav.map((n) => (
+              <li><a href={n.href} aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="wrap"><slot /></main>
+    <footer class="site">
+      <div class="wrap">
+        <ul>
+          {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+          {config.socials.map((s) => <li><a href={s.url} rel="noopener noreferrer" target="_blank">{s.label}</a></li>)}
+        </ul>
+        <p>&copy; {new Date().getFullYear()} {config.studioName}. {config.gameName} is a mobile game.</p>
+      </div>
+    </footer>
+  </body>
+</html>
