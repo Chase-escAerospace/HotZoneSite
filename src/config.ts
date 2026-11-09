@@ -5,7 +5,7 @@ export const config = {
   studioLogo: '/images/swell-studios.jpg',
   gameName: 'HOTZONE: LAST STAND',
   tagline: 'Survive the horde. Build your base. Hold the line.',
-  siteUrl: '', // e.g. https://www.example.com
+  siteUrl: 'https://swellgamestudios.com', // e.g. https://www.example.com
 
   // Leave empty to show "Coming soon" instead of a download button.
   appStoreUrl: '',
