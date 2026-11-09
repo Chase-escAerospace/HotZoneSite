@@ -39,6 +39,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
           {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
           {config.socials.map((s) => <li><a href={s.url} rel="noopener noreferrer" target="_blank">{s.label}</a></li>)}
         </ul>
+        {config.studioLogo && <img class="studio-logo" src={config.studioLogo} alt={config.studioName} width="800" height="437" loading="lazy" />}
         <p>&copy; {new Date().getFullYear()} {config.studioName}. {config.gameName} is a mobile game.</p>
       </div>
     </footer>

@@ -28,7 +28,7 @@ npm run preview  # serve dist/ locally
 - `public/images/hero.jpg` is a resized copy of the game's `SplashPage6NOV2026.png`; `public/favicon.png` and `public/images/icon.png` come from the iOS store icon. Confirm you are happy to publish these.
 - No real gameplay screenshots are included yet (the one found was not presentable); the gallery shows placeholders until you add some.
 - Copy on the Game page is deliberately general. Add specifics once you confirm them.
-- **Studio name** in config (`HotZone Studio`) is a placeholder — please set the real one.
+- `public/images/swell-studios.jpg` is the Swell Studios splash image (footer logo). Studio name and logo are set in `src/config.ts`.
 
 ## 3. Connect to AWS Amplify Hosting
 

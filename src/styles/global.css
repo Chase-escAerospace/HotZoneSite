@@ -75,4 +75,5 @@ summary { cursor: pointer; padding: 1rem 1.25rem; font-weight: 700; min-height: 
 details p { margin: 0; padding: 0 1.25rem 1rem; }
 
 footer.site { background: var(--charcoal-2); border-top: 4px solid var(--olive); padding-block: 2rem; font-size: .95rem; }
+.studio-logo { width: 200px; height: auto; margin-bottom: 1rem; }
 footer.site ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem; margin: 0 0 1rem; }
