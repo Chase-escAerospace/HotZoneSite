@@ -34,5 +34,9 @@ const sections = [
       {s.shot && <img class="phone" src={s.shot.src} alt={s.shot.alt} width="540" height="1170" loading="lazy" decoding="async" />}
     </section>
   ))}
+  <section aria-labelledby="map">
+    <h2 id="map">The map</h2>
+    <img class="banner" style="max-width:640px;margin-inline:auto" src="/images/map.webp" alt="Top-down overview map showing roads, buildings, a river and open ground" width="1200" height="1200" loading="lazy" decoding="async" />
+  </section>
   <p><DownloadButton /></p>
 </Base>
