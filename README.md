@@ -24,11 +24,11 @@ npm run preview  # serve dist/ locally
 - **Images:** put files in `public/images/` and reference them in `src/config.ts` (e.g. `screenshots: [{ src: '/images/shot1.jpg', alt: '…' }]`).
 - **Page copy:** `src/pages/*.astro`. Styles: `src/styles/global.css`.
 
-### Assets and placeholders
-- `public/images/hero.jpg` is a resized copy of the game's `SplashPage6NOV2026.png`; `public/favicon.png` and `public/images/icon.png` come from the iOS store icon. Confirm you are happy to publish these.
-- No real gameplay screenshots are included yet (the one found was not presentable); the gallery shows placeholders until you add some.
-- Copy on the Game page is deliberately general. Add specifics once you confirm them.
-- `public/images/swell-studios.jpg` is the Swell Studios splash image (footer logo). Studio name and logo are set in `src/config.ts`.
+### Assets
+- Art in `public/images/` was optimized (WebP/JPEG) from the dev's website kit (`Documents/hotzone_websitekit`): key art, logo, social card, screenshots and section renders. Originals are not committed.
+- `public/images/swell-studios.jpg` is the Swell Studios splash (footer logo); `favicon.png` comes from the iOS store icon.
+- Swap or add screenshots in `src/config.ts` (`screenshots`). If the list is empty, placeholders show.
+- Game page copy is deliberately general; add specifics once confirmed. Set `siteUrl` so the social-card URL is absolute.
 
 ## 3. Connect to AWS Amplify Hosting
 

@@ -20,11 +20,18 @@ export const config = {
   supportFormEndpoint: import.meta.env.PUBLIC_SUPPORT_FORM_ENDPOINT ?? '',
   feedbackFormEndpoint: import.meta.env.PUBLIC_FEEDBACK_FORM_ENDPOINT ?? '',
 
-  // Artwork: put approved files in public/images and list them here.
-  // Leave empty until you supply approved artwork; placeholders are shown.
-  heroImage: '/images/hero.jpg', // from the game's splash art (Assets/HotZone/Art/Splash/SplashPage6NOV2026.png)
-  heroImageAlt: 'HOTZONE: LAST STAND key art',
-  screenshots: [] as { src: string; alt: string }[],
+  // Artwork lives in public/images. Only use art you have approved for publication.
+  heroImage: '/images/keyart-portrait.webp',
+  heroImageAlt: 'HOTZONE: LAST STAND key art: soldiers and turrets defending a base from zombies',
+  bannerImage: '/images/keyart-landscape.webp',
+  ogImage: '/images/og-card.jpg',
+  screenshots: [
+    { src: '/images/shot-main-menu.webp', alt: 'Main menu with deploy button, loadout and upgrades' },
+    { src: '/images/shot-base-build.webp', alt: 'Base build mode with walls, turrets and traps on a grid' },
+    { src: '/images/shot-locker.webp', alt: 'Locker showing armor and helmets by rarity' },
+    { src: '/images/shot-battle-pass.webp', alt: 'Battle pass reward track with free and premium rewards' },
+    { src: '/images/shot-battle-pass-gear.webp', alt: 'Battle pass premium gear' },
+  ] as { src: string; alt: string }[],
 };
 
 export const nav = [

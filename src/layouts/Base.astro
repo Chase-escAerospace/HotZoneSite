@@ -16,6 +16,9 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta property="og:title" content={config.gameName} />
     <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {config.ogImage && <meta property="og:image" content={config.siteUrl ? new URL(config.ogImage, config.siteUrl).href : config.ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
     <title>{title === 'Home' ? config.gameName : `${title} | ${config.gameName}`}</title>
   </head>
   <body>

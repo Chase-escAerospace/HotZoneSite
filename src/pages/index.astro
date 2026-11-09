@@ -18,7 +18,7 @@ const features = [
       <p><DownloadButton /> <a class="btn" style="background:transparent;color:var(--cream);border:2px solid var(--cream)" href="/game/">Explore the game</a></p>
     </div>
     {config.heroImage
-      ? <img src={config.heroImage} alt={config.heroImageAlt} width="540" height="1200" fetchpriority="high" class="hero-img" />
+      ? <img src={config.heroImage} alt={config.heroImageAlt} width="640" height="1422" fetchpriority="high" class="hero-img" />
       : <div class="art" role="img" aria-label="Placeholder for key art">Key art placeholder<br />Add approved artwork in src/config.ts</div>}
   </section>
 
@@ -32,7 +32,7 @@ const features = [
   <section aria-labelledby="gallery">
     <h2 id="gallery">Screenshots</h2>
     {config.screenshots.length
-      ? <div class="gallery">{config.screenshots.map((s) => <img src={s.src} alt={s.alt} loading="lazy" />)}</div>
+      ? <div class="gallery">{config.screenshots.map((s) => <img src={s.src} alt={s.alt} width="540" height="1170" loading="lazy" decoding="async" />)}</div>
       : <div class="gallery">{[1, 2, 3, 4].map((n) => <div class="shot" role="img" aria-label={`Screenshot placeholder ${n}`}>Screenshot {n}<br />placeholder</div>)}</div>}
   </section>
 

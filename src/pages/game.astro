@@ -3,20 +3,35 @@ import Base from '../layouts/Base.astro';
 import DownloadButton from '../components/DownloadButton.astro';
 import { config } from '../config';
 const sections = [
-  { id: 'survival', t: 'Zombie survival', d: `Face waves of zombies in ${config.gameName}. Hold your ground and stay alive.` },
-  { id: 'base', t: 'Base building', d: 'Place walls, turrets and traps to defend your base core against the horde, and upgrade them over time.' },
-  { id: 'gear', t: 'Equipment progression', d: 'Upgrade your equipment as you progress and take on tougher challenges.' },
-  { id: 'pass', t: 'Battle pass rewards', d: 'Work through the battle pass to unlock rewards.' },
+  { id: 'survival', t: 'Zombie survival', d: `Face waves of zombies in ${config.gameName}. Hold your ground and stay alive.`,
+    imgs: [{ src: '/images/zombie-lineup.webp', alt: 'Five zombie types, from basic walkers to a large boss', w: 1000, h: 401 }] },
+  { id: 'base', t: 'Base building', d: 'Place walls, turrets and traps to defend your base core against the horde, and upgrade them over time.',
+    imgs: [
+      { src: '/images/defenses-lineup.webp', alt: 'Machine gun turret, rocket turret, wall, spike trap and mines', w: 1000, h: 288 },
+      { src: '/images/wall-upgrade-tiers.webp', alt: 'Wall shown in three upgrade tiers', w: 1000, h: 371 },
+    ], shot: { src: '/images/shot-base-build.webp', alt: 'Base build mode with walls, turrets and traps on a grid' } },
+  { id: 'gear', t: 'Equipment progression', d: 'Upgrade your equipment as you progress and take on tougher challenges.',
+    imgs: [{ src: '/images/gear-sets-by-rarity.webp', alt: 'Armor and helmet sets from basic to rare', w: 1000, h: 216 }],
+    shot: { src: '/images/shot-locker.webp', alt: 'Locker showing armor and helmets by rarity' } },
+  { id: 'pass', t: 'Battle pass rewards', d: 'Work through the battle pass to unlock rewards.',
+    imgs: [{ src: '/images/battlepass-premium-sets.webp', alt: 'Premium battle pass armor sets', w: 1000, h: 270 }],
+    shot: { src: '/images/shot-battle-pass.webp', alt: 'Battle pass reward track with free and premium rewards' } },
 ];
 ---
 <Base title="Game">
   <h1>The game</h1>
-  <p class="lead">An overview of {config.gameName}. Detailed numbers, item lists and mode descriptions will be added here once supplied by the studio.</p>
+  {config.bannerImage && <img class="banner" src={config.bannerImage} alt={config.heroImageAlt} width="1600" height="900" fetchpriority="high" />}
+  <p class="lead">An overview of {config.gameName}.</p>
   {sections.map((s) => (
-    <section aria-labelledby={s.id}>
-      <h2 id={s.id}>{s.t}</h2>
-      <p>{s.d}</p>
-      <div class="art" role="img" aria-label={`${s.t} artwork placeholder`}>Artwork placeholder</div>
+    <section aria-labelledby={s.id} class="split">
+      <div>
+        <h2 id={s.id}>{s.t}</h2>
+        <p>{s.d}</p>
+        <div class="panel">
+          {s.imgs.map((i) => <img src={i.src} alt={i.alt} width={i.w} height={i.h} loading="lazy" decoding="async" />)}
+        </div>
+      </div>
+      {s.shot && <img class="phone" src={s.shot.src} alt={s.shot.alt} width="540" height="1170" loading="lazy" decoding="async" />}
     </section>
   ))}
   <p><DownloadButton /></p>
