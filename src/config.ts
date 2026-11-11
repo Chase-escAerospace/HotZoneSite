@@ -1,7 +1,7 @@
 // Single place to edit studio and game details.
 // Leave a value empty ('') if unknown; the site shows a safe fallback instead of inventing data.
 export const config = {
-  studioName: 'Swell Studios',
+  studioName: 'Swell Game Studios LLC',
   studioLogo: '/images/swell-studios.jpg',
   gameName: 'HOTZONE: LAST STAND',
   tagline: 'Survive the horde. Build your base. Hold the line.',
