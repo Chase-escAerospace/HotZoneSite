@@ -62,6 +62,12 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); display: bloc
 .split { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr); align-items: start; }
 @media (min-width: 800px) { .split { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); } .split:nth-of-type(even) .phone { order: -1; } }
 .phone { width: min(100%, 300px); height: auto; margin-inline: auto; border: 3px solid var(--olive); }
+.release { border-bottom: 3px solid var(--olive); margin-bottom: 1.5rem; }
+.meta { margin: 0 0 1rem; }
+.tag { display: inline-block; background: var(--cyan); color: #062a2c; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; padding: .15rem .6rem; border-radius: 999px; margin-right: .5rem; }
+.card ul, .notice ul, ul.log { margin: 0; padding-left: 1.2rem; }
+.card li, .notice li, ul.log li { margin-bottom: .45rem; }
+.notice h3 { color: var(--cyan); }
 .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 
 .cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }

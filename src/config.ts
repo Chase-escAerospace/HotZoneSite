@@ -37,6 +37,7 @@ export const config = {
 export const nav = [
   { href: '/', label: 'Home' },
   { href: '/game/', label: 'Game' },
+  { href: '/changelog/', label: 'Changelog' },
   { href: '/support/', label: 'Support' },
   { href: '/feedback/', label: 'Feedback' },
   { href: '/privacy/', label: 'Privacy' },

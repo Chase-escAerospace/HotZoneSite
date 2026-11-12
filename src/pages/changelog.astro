@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import DownloadButton from '../components/DownloadButton.astro';
+import { config } from '../config';
+const whatsNew = [
+  'NEW Skill Tree: earn perk points as you prestige and build your own loadout of permanent perks.',
+  'NEW Districts: push into tougher parts of the city for bigger rewards.',
+  'NEW Kill Combos: chain kills fast to multiply your cash and XP, up to ×3.',
+  'NEW enemy: the Bomber. Hear the beep, keep your distance.',
+  'NEW Stats screen with a 3D gear showcase, accolades and global stat ranks.',
+  'Redesigned Leaderboards and Ranks, with weekly and all-time boards.',
+  'New tactical minimap with a full-screen map.',
+  'Bots now hold their ground in garrisons and respond to gunfire.',
+  'Cleaner battle HUD, longer vision range, and many fixes and polish.',
+];
+const features = [
+  { t: 'Skill Tree', items: [
+    'Earn a permanent perk point every time you prestige and spend it on a three-branch perk tree.',
+    'Perks apply in Deployments and the Trial and are enforced by the server.',
+    'Zoomable tree with custom perk icons, a full-width UPGRADE button, and a RESET option that asks for confirmation and shows the cost first.',
+    'New SKILL TREE entry on the main menu, with a notification badge when points are available.',
+  ] },
+  { t: 'Districts', items: [
+    'The map is split into three named districts with rising difficulty: tougher bots, and ×1.5 or ×2 rewards.',
+    'An entry banner and an advisory warning at levels 10 and 20 tell you when a district may be beyond your gear.',
+    'Districts are tinted and labelled on the minimap; downtown is marked as City.',
+  ] },
+  { t: 'Kill Combos', items: [
+    'Kills within 1.5 seconds of each other build a combo that raises the cash and XP of each kill, up to ×3 at the 8th kill.',
+    'A combo popup above your character tracks the chain. The server rebuilds and validates every combo.',
+  ] },
+  { t: 'Bomber enemy', items: [
+    'A suicide-vest bot appears in long lives (50+ kills), at most two at a time.',
+    'A blinking light and rising beep warn you as it closes in. Shoot it first to detonate it at a safe distance.',
+  ] },
+  { t: 'Bot garrisons', items: [
+    'Bots now hold positions in garrisons and run patrols instead of only roaming.',
+    'Gunfire alerts bots within 50 m, and search patrols follow up on tip-offs.',
+  ] },
+  { t: 'Stats screen', items: [
+    'A new full-screen STATS page showing your equipped gear in 3D under a spotlight, including your prestige coin.',
+    'Shows your accolades (best Trial and Chaos weekly ranks) and a service record covering combat, deployments, loot and quests, and earnings.',
+    'Global per-stat ranks (#1, top 10, top 100, top 10%), each with its own colour.',
+  ] },
+  { t: 'Leaderboards and Ranks', items: [
+    'Leaderboards redesigned with ALL-TIME and WEEKLY tabs, a STAT dropdown, podium rows, a reward banner and a YOUR RANK box.',
+    'Ranks hub reworked into STATS and WEEKLY views with row cards.',
+    'Tap a player to see their public stats, with Report and Block options.',
+  ] },
+  { t: 'Minimap', items: [
+    'A north-up tactical minimap showing your position, the hot zone, open exfils and objectives, with edge pins for anything off-screen.',
+    'Tap it to open a full-screen map with a legend.',
+  ] },
+];
+const improvements = [
+  ['Prestige', 'level caps now start at 20 and rise by 10 with each prestige, up to 100.'],
+  ['Battle HUD', "decluttered, with a zone strip that shows only while you're inside the zone, an exfil chip, new fire and reload art, and an x-ray magazine ammo display."],
+  ['Vision', 'forward range raised from 13 m to 17 m and all-around range from 6 m to 10 m.'],
+  ['Breach terminal', 'the ENTER TERMINAL prompt now floats above the terminal and no longer overlaps the screen edge.'],
+  ['Torch cut', 'new rotating cut pattern.'],
+  ['Tasks', 'the TASKS button uses a clipboard icon, and the task list now draws beneath the pause menu.'],
+  ['Menus', 'bigger notification badges and refreshed menu icons.'],
+];
+const fixes = [
+  'The minimap and task list no longer overlap the quest strip on tall phones.',
+  'The minimap frame and corner brackets now line up correctly.',
+  'Fixed the Retry button when a connection fails.',
+];
+---
+<Base title="Changelog" description={`${config.gameName} 1.1 dev update: the Skill Tree Update.`}>
+  <p class="kicker">Dev update</p>
+  <h1>Changelog</h1>
+
+  <article aria-labelledby="v110">
+    <header class="release">
+      <h2 id="v110">1.1 — The Skill Tree Update</h2>
+      <p class="meta"><span class="tag">In development</span> Changes since 1.0.0 (build 7). Not yet released; details may change.</p>
+    </header>
+
+    <section class="notice info" aria-labelledby="whatsnew">
+      <h3 id="whatsnew">What's new</h3>
+      <ul>{whatsNew.map((w) => <li>{w}</li>)}</ul>
+    </section>
+
+    <section aria-labelledby="new-features">
+      <h2 id="new-features">New features</h2>
+      <div class="cards">
+        {features.map((f) => (
+          <div class="card"><h3>{f.t}</h3><ul>{f.items.map((i) => <li>{i}</li>)}</ul></div>
+        ))}
+      </div>
+    </section>
+
+    <section aria-labelledby="improvements">
+      <h2 id="improvements">Improvements</h2>
+      <ul class="log">{improvements.map(([k, v]) => <li><strong>{k}:</strong> {v}</li>)}</ul>
+    </section>
+
+    <section aria-labelledby="fixes">
+      <h2 id="fixes">Fixes</h2>
+      <ul class="log">{fixes.map((f) => <li>{f}</li>)}</ul>
+    </section>
+  </article>
+
+  <p><DownloadButton /></p>
+</Base>
